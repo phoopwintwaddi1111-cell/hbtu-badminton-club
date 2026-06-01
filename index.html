@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hmawbi TU Badminton Club</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-animation">
+        <div class="bg-logo"></div>
+    </div>
+
+    <!-- Header Section with Logo -->
+    <header class="club-header">
+        <div class="logo-area">
+            <!-- 💡 ကြိုက်နှစ်သက်ရာ Logo ပုံကို images/logo.png နေရာမှာ ထည့်နိုင်ပါတယ် -->
+            <img src="images/logo.jpg" alt="Logo" width="80">
+            <h1>Hmawbi TU Badminton Club</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Menu (၃ ခု) -->
+    <nav class="club-nav">
+        <button class="nav-btn active" onclick="switchTab('about', this)">Vision & Mission</button>
+        <button class="nav-btn" onclick="switchTab('structure', this)">Club Organizational Structure</button>
+        <button class="nav-btn" onclick="switchTab('member-zone', this)">Member Card</button>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- MENU 1: Vision & Mission -->
+        <section id="about" class="tab-content active">
+            <div class="info-card">
+                <h2>Our Vision</h2>
+                <ul>
+                <li> To establish a highly capable and competitive badminton club that can proudly represent
+                    Technological University (Hmawbi).</li>
+                <li>To nurture not only competent future engineers and architects, but also skilled and accomplished
+                badminton athletes.</li>
+                </ul>
+
+                <h2>Our Mission</h2>
+                <ul>
+                    <li>To enhance the physical fitness and sporting abilities of students.</li>
+                    <li>To organize and conduct regular training programs in a systematic and effective manner.
+
+                    </li>
+                    <li>To support and nurture the development of skilled and competent badminton athletes.</li>
+                    <li>To promote and strengthen the reputation of Technological University (Hmawbi) through
+                        participation and achievement in inter-university competitions.</li>
+                </ul>
+                <h2>Core Values</h2>
+                <ul>
+                    <li>Commitment to Discipline</li>
+                    <li>Respect for Others</li>
+                    <li>Teamwork and Collaboration</li>
+                    <li>Positive Attitude</li>
+                </ul>
+                
+            </div>
+        </section>
+
+        <!-- MENU 2: Organization Structure (ဖွဲ့စည်းပုံဇယား) -->
+        <section id="structure" class="tab-content">
+            <div class="table-card">
+                <h2>HBTU BADMINTON CLUB GROUP LIST</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Name</th>
+                            <th>Major</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>President</strong></td>
+                            <td>Maung Min Thu Kha</td>
+                            <td>ME Mech</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vice President</strong></td>
+                            <td>Maung Hein Htike Zin</td>
+                            <td>SemII Civil</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secretary</strong></td>
+                            <td>Maung Thurein Nay Min</td>
+                            <td>ME Mech</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deputy Secretary</strong></td>
+                            <td>Ma Soe See Saim</td>
+                            <td>VI Ec</td>
+                        </tr>
+                        <tr>
+                            <td><strong> Treasurer</strong></td>
+                            <td>Maung Aung Min Hein</td>
+                            <td>SemIII Mc</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deputy Treasurer</strong></td>
+                            <td>Maung Aye Chan Aung</td>
+                            <td>SemIII Mech</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="member-zone" class="tab-content active">
+
+            <div class="form-section">
+                <h3>Generate Membership Card</h3>
+
+                <input type="text" id="searchId" placeholder="ID 4 Digits (Eg - 1234)" maxlength="4">
+                <input type="text" id="searchMajor" placeholder="Major  (Eg - Civil, EC, Mech)">
+                <input type="text" id="searchRoll" placeholder="Roll Number ">
+
+                <button onclick="fetchMemberCard()">Enter</button>
+            </div>
+
+            <div class="card-display" id="memberCard" style="display: none;">
+                <div class="badminton-card">
+                    <div class="card-header">
+                        <h2>Hmawbi TU Badminton Club Member</h2>
+                        <p>OFFICIAL MEMBER CARD</p>
+                    </div>
+
+                    <div class="card-body">
+                        <p><strong>Name:</strong> <span id="cardName">-</span></p>
+                        <p><strong>Phone:</strong> <span id="cardPhone">-</span></p>
+                        <p><strong>Member ID:</strong> <span id="cardIdText">-</span></p>
+                        <p><strong>Major:</strong> <span id="cardMajor">-</span></p>
+                        <p><strong>Roll Number:</strong> <span id="cardRoll">-</span></p>
+
+                        <div class="payment-info">
+                            <p>📅 <strong>Starting Date:</strong> <span id="cardStart">-</span></p>
+                            <p>⏳ <strong>End Date:</strong> <span id="cardEnd">-</span></p>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <p>CAMPUS: HMAWBI TU</p>
+                        <p>VALID UNTIL EXPIRED</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+        <footer style="text-align: center; padding: 20px; color: #64748b; font-size: 14px;">
+        <p>© 2026 Hmawbi TU Badminton Club. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:hbtubadmintonclub@gmail.com" style="color: #007bff; text-decoration: none;">hbtubadmintonclub@gmail.com</a></p>
+        <p>Developed by: PWDev</p>
+    </footer>
+
+    
+
+
+    <!-- Menu ပြောင်းလဲဖို့အတွက် JavaScript အနည်းငယ် -->
+    <script src="script.js"></script>
+</body>
+
+</html>
